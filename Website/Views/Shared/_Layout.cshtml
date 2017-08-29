@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tae Kim - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="~/lib/boostrap/dist/css//bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/yeti/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <div id="sidebar">
+        @*@if (User.Identity.IsAuthenticated)
+        {*@
+            <img src="~/img/DSC06056.jpg" alt="headshot" class="headshot"/>
+            <span id="username">Tae Kim</span>
+        @*}*@
+        <ul class="nav">
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About Me</a></li>
+            <li><a asp-controller="App" asp-action="Resume">Resume</a></li>            
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="App" asp-action="Blogs">Blogs</a></li>
+                <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
+            }
+            else
+            {
+                @*<li><a asp-controller="App" asp-action="ReaderBlogs">Blogs</a></li>*@
+                <li><a asp-controller="Auth" asp-action="Login">Login</a></li>
+            }
+        </ul>
+    </div>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-custom">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <button id="sidebarToggle" class="btn btn-primary">
+                            <i class="fa fa-angle-left" style="color:#ffbb33"></i>
+                        </button>
+                    </li>
+                </ul>
+                <a asp-controller="App" asp-action="Index" class="navbar-brand">Menu</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/thkim1234" target="_blank" class="btn btn-lg btn-info">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/tae-hyun-kim-5175538a/" target="_blank" class="btn btn-lg btn-info">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="main" class="container-fluid">
+            <div>
+                @RenderBody()
+            </div>            
+        </div>
+        @*<div id="footer" class="container-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-bottom">
+                <h4 class="text-center text-info">&copy; 2017 Tae Kim Std.</h4>
+            </div>
+        </div>*@
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/boostrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

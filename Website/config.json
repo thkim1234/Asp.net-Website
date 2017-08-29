@@ -1,0 +1,8 @@
+{
+  "MailSettings": {
+    "ToAddress": "tedkim1234@gmail.com"
+  },
+  "ConnectionStrings": {
+    "WebsiteContextConnection": "Server=(localdb)\\MSSQLLocalDb;Database=TheWebsiteDb;Trusted_Connection=True;"
+  }
+}

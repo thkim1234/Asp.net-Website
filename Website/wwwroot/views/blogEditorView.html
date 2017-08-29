@@ -1,0 +1,18 @@
+﻿<div>
+    <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i>Back</a>
+    <div class="col-md-12">
+        <h2>{{ vm.blogTitle }}</h2>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
+        <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage}}</div>
+        
+        <table class="table table-responsive table-striped">
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+            <tr ng-repeat="comments in vm.comments">
+                <td>{{ blog.title}}</td>   
+            </tr>
+        </table>
+    </div>
+</div>

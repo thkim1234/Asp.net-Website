@@ -1,0 +1,17 @@
+﻿<form novalidate name="newBlogForm" ng-submit="vm.addBlog()">
+    <div class="form-group">
+        <label>Blog Title</label>
+        <input class="form-control" type="text" id="title" name="title" ng-model="vm.newBlog.title" required ng-minlength="3"/>
+        <span ng-show="newBlogForm.title.$error.required" class="text-warning">Title is required</span>
+        <span ng-show="newBlogForm.title.$error.minlength" class="text-warning">Title must be at least three characters.</span>
+    </div>
+    <div class="form-group">
+        <label>Blog Body</label>
+        <input class="form-control" type="text" id="body" name="body" ng-model="vm.newBlog.body" required ng-minlength="10"/>
+        <span ng-show="newBlogForm.body.$error.required" class="text-warning">Body is required</span>
+        <span ng-show="newBlogForm.body.$error.minlength" class="text-warning">Body must consist at least ten characters.</span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-success btn-sm" ng-disabled="newBlogForm.$invalid"/>
+    </div>
+</form>

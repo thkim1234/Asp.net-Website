@@ -1,0 +1,15 @@
+﻿ <div class="col-md-6 col-md-offset-3">
+     <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+     <wait-cursor display-when="vm.isBusy"></wait-cursor>
+     
+     <a ng-href="#/newBlog/{{ blog.title }}" class="btn btn-sm btn-primary">New Blog</a>
+
+     <div class="panel panel-primary" ng-repeat="blog in vm.blogs">
+         <div class="panel-heading"> {{ blog.title }} ---------------- {{ blog.datePosted | date: 'short' }}</div>
+         <div class="panel-body">
+             {{ blog.body }}
+         </div>
+         <a ng-href="#/editor/{{ blog.title }}" class="btn btn-sm btn-primary">Manage</a>
+     </div>
+     
+ </div>
